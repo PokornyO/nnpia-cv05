@@ -1,0 +1,4 @@
+server:
+  port: 9000
+app:
+  basePath: /api/v1
