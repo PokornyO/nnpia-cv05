@@ -21,7 +21,7 @@ public class ProductController {
 
 
 
-    @GetMapping("${app.basePath}/products/{id}")
+    @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
         Product product = productService.getProductById(id);
         if (product != null) {

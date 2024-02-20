@@ -18,7 +18,7 @@ public class ProductsController {
     public ProductsController(ProductService productService) {
         this.productService = productService;
     }
-    @GetMapping("${app.basePath}/products")
+    @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }

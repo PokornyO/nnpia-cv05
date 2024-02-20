@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
-    @GetMapping("${app.basePath}")
+    @GetMapping("")
     public String helloWorld() {
         return "Hello world from Spring Boot application.";
     }
 
-    @GetMapping("${app.basePath}/{param}")
+    @GetMapping("/{param}")
     public String pathParamEndpoint(@PathVariable("param") String param) {
         return "Přijatý parametr z cesty: " + param;
     }
 
-    @RequestMapping(value = "${app.basePath}/myPath/{path}", method = RequestMethod.GET)
+    @RequestMapping(value = "/myPath/{path}", method = RequestMethod.GET)
     public String requestParamEndpointGR(@PathVariable("path") String path) {
         return "Přijatý parametr z cesty pomocí RequestMapping: " + path;
     }
 
-    @GetMapping("${app.basePath}/query")
+    @GetMapping("/query")
     public String helloQueryParam(@RequestParam("query") String query) {
         return "Přijatý parametr z query: " + query;
     }
