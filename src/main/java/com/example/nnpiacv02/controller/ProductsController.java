@@ -18,23 +18,14 @@ import java.util.List;
 public class ProductsController {
 
     private final ProductService productService;
-    private final AppUserRepository repository;
+
 
     public ProductsController(ProductService productService, AppUserRepository repository) {
         this.productService = productService;
-        this.repository = repository;
     }
     @GetMapping("/products")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
-    @GetMapping("/activeUser")
-    public List<AppUser> getActiveUsers() {
-        List<AppUser> users = repository.findAppUserByActive(true);
-        return repository.findAppUserByActive(true);
-    }
-    @GetMapping("/userRole/{role}")
-    public List<AppUser> getProductById(@PathVariable String role) {
-        return repository.findAppUsersByRoleName(role);
-    }
+
 }

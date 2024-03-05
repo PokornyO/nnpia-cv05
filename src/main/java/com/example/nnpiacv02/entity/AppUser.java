@@ -1,7 +1,12 @@
 package com.example.nnpiacv02.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import java.util.*;
@@ -16,11 +21,14 @@ Tato volba se používá především pro vývojové účely.
 "none": Hibernate nebude provádět žádné akce vůči databázi. Je očekáváno, že schéma
 je již vytvořeno a konfigurováno mimo Hibernate.*/
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class AppUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String username;
     private String password;
     private boolean active;
@@ -31,4 +39,11 @@ public class AppUser {
     @ManyToMany(mappedBy = "users")
     private List<Role> roles = new ArrayList<>();
 
+    public AppUser(String username, String password, boolean active, Date creation_date, Date update_date) {
+        this.username = username;
+        this.password = password;
+        this.active = active;
+        this.creation_date = creation_date;
+        this.update_date = update_date;
+    }
 }
