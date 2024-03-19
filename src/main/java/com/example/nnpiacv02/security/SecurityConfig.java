@@ -1,4 +1,4 @@
-package com.example.nnpiacv02.security;
+/*package com.example.nnpiacv02.security;
 
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
@@ -146,4 +146,4 @@ public class SecurityConfig {
         return AuthorizationServerSettings.builder().build();
     }
 
-}
+}*/
